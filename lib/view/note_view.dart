@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:notes_app/view/widget/custoum_appbar.dart';
 
 
 class noteview extends StatelessWidget {
@@ -8,7 +9,10 @@ class noteview extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       
-      body: Container(),
+      body: Column(children: [
+        SizedBox(height: 50,),
+        custoumappbar(),
+      ],),
     );
   }
 }
