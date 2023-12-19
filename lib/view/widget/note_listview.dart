@@ -8,6 +8,8 @@ class notelistview extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: ListView.builder(
+        padding: EdgeInsets.zero,
+        physics: BouncingScrollPhysics(),
         itemCount: 10,
         itemBuilder: (context, index) {
           return Padding(
