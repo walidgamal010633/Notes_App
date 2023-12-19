@@ -1,18 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:notes_app/view/widget/custoum_icon.dart';
+import 'package:notes_app/view/widget/custom_icon.dart';
 
 
 
-class custoumappbar extends StatelessWidget {
-  const custoumappbar({super.key});
+class customappbar extends StatelessWidget {
+  const customappbar({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Row(children: [
-      Text("Notes",style: TextStyle(fontSize: 32),),
-    Spacer(),
-      
-     custoumicon()
-    ],);
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 8),
+      child: Row(children: [
+        Text("Notes",style: TextStyle(fontSize: 32),),
+      Spacer(),
+        
+       customicon()
+      ],),
+    );
   }
 }
