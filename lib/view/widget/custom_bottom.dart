@@ -18,7 +18,8 @@ class custom_bottom extends StatelessWidget {
           borderRadius: BorderRadius.circular(12),
           color: kprimary_color,
         ),
-        child: Center(
+        child:
+         Center(
           child: isloding
               ? SizedBox(
                 height: 30,
