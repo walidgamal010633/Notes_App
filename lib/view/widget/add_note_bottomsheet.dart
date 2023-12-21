@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:notes_app/constant.dart';
 import 'package:notes_app/cubits/cubit/add_note_cubit.dart';
 import 'package:notes_app/view/widget/add_note_form.dart';
 
@@ -13,9 +14,23 @@ class addnotebottomsheet extends StatelessWidget {
       child: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
-          child: add_note_form(),
+          child: BlocConsumer<AddNoteCubit, AddNoteState>(
+            listener: (context, state) {
+              if (state is AddNoteFalir) {
+               Show_SnackBar(context, "oops there was an erorr , please try again");
+              }
+              if(state is AddNoteSuccess){
+                Navigator.pop(context);
+              }
+            },
+            builder: (context, state) {
+              return add_note_form();
+            },
+          ),
         ),
       ),
     );
   }
+
+  
 }
