@@ -18,9 +18,12 @@ class addnotebottomsheet extends StatelessWidget {
             listener: (context, state) {
               if (state is AddNoteFalir) {
                Show_SnackBar(context, "oops there was an erorr , please try again");
+               
               }
               if(state is AddNoteSuccess){
+
                 Navigator.pop(context);
+                Show_SnackBar(context, "The note has been added successfully");
               }
             },
             builder: (context, state) {
