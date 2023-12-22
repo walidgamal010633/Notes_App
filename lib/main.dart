@@ -10,9 +10,9 @@ void main() async{
 
  await Hive.initFlutter();
  Bloc.observer =SmpelBlocObserver();
-  
-  await Hive.openBox<note_model>(knotesBox);
   Hive.registerAdapter(notemodelAdapter());
+  await Hive.openBox<note_model>(knotesBox);
+  
  
   runApp(const notes_App());
 }
