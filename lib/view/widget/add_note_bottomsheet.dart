@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes_app/constant.dart';
 import 'package:notes_app/cubits/AddNoteCubit/add_note_cubit.dart';
+import 'package:notes_app/cubits/NotesCubit/notes_cubit.dart';
 
 import 'package:notes_app/view/widget/add_note_form.dart';
 
@@ -22,7 +23,7 @@ class addnotebottomsheet extends StatelessWidget {
                
               }
               if(state is AddNoteSuccess){
-
+              
                 Navigator.pop(context);
                 Show_SnackBar(context, "The note has been added successfully");
               }

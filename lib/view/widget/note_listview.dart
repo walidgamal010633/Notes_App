@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:notes_app/cubits/AddNoteCubit/add_note_cubit.dart';
+import 'package:notes_app/cubits/NotesCubit/notes_cubit.dart';
+import 'package:notes_app/model/note_model.dart';
 import 'package:notes_app/view/widget/cardItem.dart';
 
 class notelistview extends StatelessWidget {
@@ -6,18 +10,26 @@ class notelistview extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: ListView.builder(
-        padding: EdgeInsets.zero,
-        physics: BouncingScrollPhysics(),
-        itemCount: 10,
-        itemBuilder: (context, index) {
-          return Padding(
-            padding: const EdgeInsets.symmetric(vertical: 8),
-            child: cardItem(),
-          );
-        },
-      ),
+    return BlocBuilder<NotesCubit, NotesState>(
+      builder: (context, state) {
+
+        List<note_model>notes =BlocProvider.of<NotesCubit>(context).notes??[];
+        return Expanded(
+          child: ListView.builder(
+            padding: EdgeInsets.zero,
+           
+            itemCount: notes.length,
+            itemBuilder: (context, index) {
+              return Padding(
+                padding: const EdgeInsets.symmetric(vertical: 4),
+                child: cardItem(
+                  note: notes[index],
+                ),
+              );
+            },
+          ),
+        );
+      },
     );
   }
 }

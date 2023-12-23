@@ -19,6 +19,7 @@ class _noteViewBodyState extends State<noteViewBody> {
   }
   @override
   Widget build(BuildContext context) {
+    
     return  Container(
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16),

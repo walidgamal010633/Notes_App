@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:notes_app/model/note_model.dart';
 import 'package:notes_app/view/edite_Note.dart';
 
 class cardItem extends StatelessWidget {
-  const cardItem({super.key});
-
+  const cardItem({super.key, required this.note});
+ final note_model note ;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -17,22 +18,23 @@ class cardItem extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16),
-          color: Color(0xff7ab9de),
+          color: Color(note.Color),
         ),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             ListTile(
               title: Padding(
                 padding: const EdgeInsets.only(top: 28, bottom: 12),
                 child: Text(
-                  "flutter",
+                  note.titel,
                   style: TextStyle(fontSize: 32, color: Colors.black),
                 ),
               ),
               subtitle: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
-                  "developer",
+                  note.subtitel,
                   style: TextStyle(
                     fontSize: 24,
                     color: Colors.black.withOpacity(0.5),
@@ -48,20 +50,14 @@ class cardItem extends StatelessWidget {
                 ),
               ),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(right: 28, bottom: 24),
-                  child: Text(
-                    "12/9/2023",
-                    style: TextStyle(
-                      fontSize: 18,
-                      color: Colors.black.withOpacity(0.5),
-                    ),
-                  ),
-                )
-              ],
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 24),
+              child: Text(
+                note.date,
+                style: TextStyle(
+                  color: Colors.black.withOpacity(.4),
+                ),
+              ),
             )
           ],
         ),
