@@ -15,6 +15,7 @@ class AddNoteCubit extends Cubit<AddNoteState> {
     try {
       
       var notesBox = Hive.box<note_model>(knotesBox);
+      emit(AddNoteLoading());
       await notesBox.add(note);
       emit(AddNoteSuccess());
     } catch (e) {

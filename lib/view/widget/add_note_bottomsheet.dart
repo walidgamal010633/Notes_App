@@ -28,7 +28,12 @@ class addnotebottomsheet extends StatelessWidget {
               }
             },
             builder: (context, state) {
-              return add_note_form();
+              return AbsorbPointer(
+                absorbing: state is AddNoteLoading ? true :false,
+                child: Padding(
+                  padding:  EdgeInsets.only(bottom:MediaQuery.of(context).viewInsets.bottom ),
+                  child: add_note_form(),
+                ));
             },
           ),
         ),

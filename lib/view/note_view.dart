@@ -14,7 +14,7 @@ class noteview extends StatelessWidget {
     return BlocProvider(
       create: (context) => NotesCubit(),
       child: Scaffold(
-        // resizeToAvoidBottomInset: false,
+        resizeToAvoidBottomInset: false,
           floatingActionButton: FloatingActionButton(
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.all(
@@ -29,6 +29,7 @@ class noteview extends StatelessWidget {
               ),
               onPressed: () {
                 showModalBottomSheet(
+                  isScrollControlled: true,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(16),
                     ),
