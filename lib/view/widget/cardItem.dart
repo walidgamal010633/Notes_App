@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:notes_app/constant.dart';
+import 'package:notes_app/cubits/NotesCubit/notes_cubit.dart';
 import 'package:notes_app/model/note_model.dart';
 import 'package:notes_app/view/edite_Note.dart';
 
@@ -42,7 +45,11 @@ class cardItem extends StatelessWidget {
                 ),
               ),
               trailing: IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  note.delete();
+                  BlocProvider.of<NotesCubit>(context).FetchAllNotes();
+                  Show_SnackBar(context, "The note has been deleted successfully");
+                },
                 icon: Icon(
                   Icons.delete,
                   color: Colors.black,

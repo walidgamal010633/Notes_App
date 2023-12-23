@@ -11,34 +11,31 @@ class noteview extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => NotesCubit(),
-      child: Scaffold(
-        resizeToAvoidBottomInset: false,
-          floatingActionButton: FloatingActionButton(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.all(
-                  Radius.circular(30),
-                ),
+    return Scaffold(
+      resizeToAvoidBottomInset: false,
+        floatingActionButton: FloatingActionButton(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(
+                Radius.circular(30),
               ),
-              backgroundColor: Color.fromARGB(255, 39, 74, 94),
-              child: Icon(
-                Icons.add,
-                color: Colors.black,
-                size: 30,
-              ),
-              onPressed: () {
-                showModalBottomSheet(
-                  isScrollControlled: true,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(16),
-                    ),
-                    context: context,
-                    builder: (builder) {
-                      return const addnotebottomsheet();
-                    });
-              }),
-          body: noteViewBody()),
-    );
+            ),
+            backgroundColor: Color.fromARGB(255, 39, 74, 94),
+            child: Icon(
+              Icons.add,
+              color: Colors.black,
+              size: 30,
+            ),
+            onPressed: () {
+              showModalBottomSheet(
+                isScrollControlled: true,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(16),
+                  ),
+                  context: context,
+                  builder: (builder) {
+                    return const addnotebottomsheet();
+                  });
+            }),
+        body: noteViewBody());
   }
 }

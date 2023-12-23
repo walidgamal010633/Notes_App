@@ -23,7 +23,7 @@ class addnotebottomsheet extends StatelessWidget {
                
               }
               if(state is AddNoteSuccess){
-              
+              BlocProvider.of<NotesCubit>(context).FetchAllNotes();
                 Navigator.pop(context);
                 Show_SnackBar(context, "The note has been added successfully");
               }
