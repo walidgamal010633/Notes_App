@@ -4,10 +4,11 @@ import 'package:notes_app/constant.dart';
 import 'package:notes_app/cubits/NotesCubit/notes_cubit.dart';
 import 'package:notes_app/model/note_model.dart';
 import 'package:notes_app/view/edite_Note.dart';
+import 'package:notes_app/view/widget/ConfirmationDialog.dart';
 
 class cardItem extends StatelessWidget {
   const cardItem({super.key, required this.note});
- final note_model note ;
+  final note_model note;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -44,24 +45,14 @@ class cardItem extends StatelessWidget {
                   ),
                 ),
               ),
-              trailing: IconButton(
-                onPressed: () {
-                  note.delete();
-                  BlocProvider.of<NotesCubit>(context).FetchAllNotes();
-                  Show_SnackBar(context, "The note has been deleted successfully");
-                },
-                icon: Icon(
-                  Icons.delete,
-                  color: Colors.black,
-                  size: 42,
-                ),
-              ),
+              trailing: custom_icondelete(note: note,)
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 24),
               child: Text(
                 note.date,
                 style: TextStyle(
+                  fontSize: 20,
                   color: Colors.black.withOpacity(.4),
                 ),
               ),
