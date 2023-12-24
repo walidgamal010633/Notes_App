@@ -4,9 +4,10 @@ import 'package:notes_app/view/widget/custom_icon.dart';
 
 
 class customappbar extends StatelessWidget {
-  const customappbar({super.key, required this.icon, required this.text});
+  const customappbar({super.key, required this.icon, required this.text, this.onPressed});
 final Icon icon ;
 final String text;
+final void Function()? onPressed ;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -15,7 +16,9 @@ final String text;
         Text(text,style: TextStyle(fontSize: 32),),
       Spacer(),
         
-       customicon(icon: icon,)
+       customicon(
+        onPressed:onPressed ,
+        icon: icon,)
       ],),
     );
   }

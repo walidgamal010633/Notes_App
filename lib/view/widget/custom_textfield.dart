@@ -3,13 +3,17 @@ import 'package:notes_app/constant.dart';
 
 class custom_taxtfield extends StatelessWidget {
   const custom_taxtfield(
-      {super.key, required this.hintText, this.maxLines = 1, this.onSaved});
-  final String hintText;
+      {super.key,  this.hintText, this.maxLines = 1, this.onSaved, this.onChanged, this.text});
+  final String? hintText;
   final int maxLines;
   final void Function(String?)? onSaved;
+  final Function(String)? onChanged;
+  final String? text;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      initialValue: text,
+      onChanged: onChanged,
       onSaved: onSaved,
       validator: (value) {
         if (value?.isEmpty ?? true) {

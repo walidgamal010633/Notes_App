@@ -15,7 +15,7 @@ class cardItem extends StatelessWidget {
       onTap: () {
         Navigator.of(context).push(
           MaterialPageRoute(builder: (builder) {
-            return edit_note();
+            return edit_note(note: note,);
           }),
         );
       },
