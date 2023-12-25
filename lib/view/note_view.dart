@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:notes_app/constant.dart';
 import 'package:notes_app/cubits/NotesCubit/notes_cubit.dart';
 import 'package:notes_app/view/widget/add_note_bottomsheet.dart';
 import 'package:notes_app/view/widget/custom_appbar.dart';
@@ -19,7 +20,7 @@ class noteview extends StatelessWidget {
                 Radius.circular(30),
               ),
             ),
-            backgroundColor: Color.fromARGB(255, 39, 74, 94),
+            backgroundColor: kprimary_color,
             child: Icon(
               Icons.add,
               color: Colors.black,

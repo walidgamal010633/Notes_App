@@ -34,7 +34,7 @@ class _add_note_formState extends State<add_note_form> {
               onSaved: (value) {
                 titel = value;
               },
-              hintText: "hintText"),
+              hintText: "Title"),
           SizedBox(
             height: 20,
           ),
@@ -42,17 +42,16 @@ class _add_note_formState extends State<add_note_form> {
             onSaved: (value) {
               subtitel = value;
             },
-            hintText: "sss",
+            hintText: "Subtitle",
             maxLines: 5,
           ),
           SizedBox(
             height: 16,
           ),
-
-
-colorlistview(),
-
-           SizedBox(
+          colorlistview(
+            
+          ),
+          SizedBox(
             height: 16,
           ),
           BlocBuilder<AddNoteCubit, AddNoteState>(
@@ -71,7 +70,6 @@ colorlistview(),
                         date: formattedDate,
                         Color: Colors.blue.value);
                     BlocProvider.of<AddNoteCubit>(context).addNote(note);
-                    
                   }
                   {
                     autovalidateMode = AutovalidateMode.always;
@@ -86,5 +84,3 @@ colorlistview(),
     );
   }
 }
-
-

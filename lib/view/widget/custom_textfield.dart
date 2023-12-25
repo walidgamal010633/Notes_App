@@ -3,7 +3,12 @@ import 'package:notes_app/constant.dart';
 
 class custom_taxtfield extends StatelessWidget {
   const custom_taxtfield(
-      {super.key,  this.hintText, this.maxLines = 1, this.onSaved, this.onChanged, this.text});
+      {super.key,
+      this.hintText,
+      this.maxLines = 1,
+      this.onSaved,
+      this.onChanged,
+      this.text});
   final String? hintText;
   final int maxLines;
   final void Function(String?)? onSaved;
@@ -26,18 +31,34 @@ class custom_taxtfield extends StatelessWidget {
       maxLines: maxLines,
       cursorColor: kprimary_color,
       decoration: InputDecoration(
-          hintText: hintText,
-          hintStyle: TextStyle(fontSize: 20),
-          enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(
-                color: kprimary_color,
-              ),
-              borderRadius: BorderRadius.circular(16)),
-          focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(
-                color: kprimary_color,
-              ),
-              borderRadius: BorderRadius.circular(16))),
+        errorStyle: TextStyle(color: Colors.redAccent, fontSize: 16),
+        hintText: hintText,
+        hintStyle: TextStyle(fontSize: 20),
+        enabledBorder: OutlineInputBorder(
+          borderSide: BorderSide(
+            color: kprimary_color,
+          ),
+          borderRadius: BorderRadius.circular(16),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderSide: BorderSide(
+            color: kprimary_color,
+          ),
+          borderRadius: BorderRadius.circular(16),
+        ),
+        errorBorder: OutlineInputBorder(
+          borderSide: BorderSide(
+            color: kprimary_color,
+          ),
+          borderRadius: BorderRadius.circular(16),
+        ),
+        border: OutlineInputBorder(
+          borderSide: BorderSide(
+            color: kprimary_color,
+          ),
+          borderRadius: BorderRadius.circular(16),
+        ),
+      ),
     );
   }
 }
